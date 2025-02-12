@@ -1,28 +1,59 @@
+/**
+ * 
+ */
 package com.flipkart.bean;
 
+/**
+ * 
+ */
 public class Customer extends User {
-    private String customerCity;
-    private String customerCardNumber;
+	private String name;
+	private String phoneNumber;
+	private int age;
+	private String address;
+	
+	public Customer(String email, String password, int roleId, String name, String phoneNumber, int age, String address) {
+		super(email, password, roleId);
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.age = age;
+		this.address = address;
+	}
+	
+	public Customer() {
+		super();
+	}
 
-    public Customer (String userId, String userName, String email, String password, String customerCity, String customerCardNumber) {
-        super(userId, userName, email, password);
-        this.customerCity = customerCity;
-        this.customerCardNumber = customerCardNumber;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getCustomerAddress() {
-        return customerCity;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setCustomerAddress(String customerAddress) {
-        this.customerCity = customerAddress;
-    }
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public String getCustomerCardNumber() {
-        return customerCardNumber;
-    }
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
-    public void setCustomerCardNumber(String customerCardNumber) {
-        this.customerCardNumber = customerCardNumber;
-    }
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 }

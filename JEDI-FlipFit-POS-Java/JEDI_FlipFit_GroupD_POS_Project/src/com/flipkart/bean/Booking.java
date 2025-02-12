@@ -1,29 +1,75 @@
+/**
+ * 
+ */
 package com.flipkart.bean;
 
+import java.util.Date;
+
+/**
+ * 
+ */
 public class Booking {
-    private String bookingId;
-    private String userID;
+	private String bookingId;
+	private String slotId;
+	private String gymId;
+	private String type;
+	private Date date;
+	private String customerEmail;
+	private String trainer;
 
-    public Booking (String bookingId, String userID) {
-        this.bookingId = bookingId;
-        this.userID = userID;
-    }
+	public String getBookingId() {
+		return bookingId;
+	}
 
-    public String getBookingID() {
-        return bookingId;
-    }
+	public void setBookingId(String bookingId) {
+		this.bookingId = bookingId;
+	}
 
-    public void setBookingID(String bookingID) {
-        this.bookingId = bookingID;
-    }
+	public String getSlotId() {
+		return slotId;
+	}
 
-    public String getUserID() {
-        return userID;
-    }
+	public void setSlotId(String slotId) {
+		this.slotId = slotId;
+	}
 
-    public void setUserID(String userID) {
-        this.userID = userID;
-    }
+	public String getGymId() {
+		return gymId;
+	}
 
+	public void setGymId(String gymId) {
+		this.gymId = gymId;
+	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getCustomerEmail() {
+		return customerEmail;
+	}
+
+	public void setCustomerEmail(String customerEmail) {
+		this.customerEmail = customerEmail;
+	}
+
+	public String getTrainer() {
+		return trainer;
+	}
+
+	public void setTrainer(String trainer) {
+		this.trainer = trainer;
+	}
 }
