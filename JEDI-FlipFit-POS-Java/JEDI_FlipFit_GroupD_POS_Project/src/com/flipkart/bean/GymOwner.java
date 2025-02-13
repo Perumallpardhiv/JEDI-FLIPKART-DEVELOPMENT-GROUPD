@@ -13,20 +13,12 @@ public class GymOwner extends User {
 	private String panNumber;
 	private boolean isVerified;
 	
-<<<<<<< HEAD
 	public GymOwner(String email, String password, int roleId, String name, String phoneNumber, String aadharNumber, String panNumber) {
-=======
-	public GymOwner(String email, String password, String roleId, String name, String phoneNumber, String aadharNumber, String panNumber) {
->>>>>>> 61684daef6c97ae4cfd2bd25c5f5d3db96a1d893
 		super(email, password, roleId);
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.aadharNumber = aadharNumber;
 		this.panNumber = panNumber;
-<<<<<<< HEAD
-=======
-		this.isVerified= false;
->>>>>>> 61684daef6c97ae4cfd2bd25c5f5d3db96a1d893
 	}
 	
 	public GymOwner() {
@@ -60,7 +52,6 @@ public class GymOwner extends User {
 	public String getPanNumber() {
 		return panNumber;
 	}
-<<<<<<< HEAD
 
 	public void setPanNumber(String panNumber) {
 		this.panNumber = panNumber;
@@ -74,18 +65,3 @@ public class GymOwner extends User {
 	}
 
 }
-=======
-
-	public void setPanNumber(String panNumber) {
-		this.panNumber = panNumber;
-	}
-	public boolean isVerified() {
-		return isVerified;
-	}
-
-	public void setVerified(boolean isVerified) {
-		this.isVerified = isVerified;
-	}
-
-}
->>>>>>> 61684daef6c97ae4cfd2bd25c5f5d3db96a1d893

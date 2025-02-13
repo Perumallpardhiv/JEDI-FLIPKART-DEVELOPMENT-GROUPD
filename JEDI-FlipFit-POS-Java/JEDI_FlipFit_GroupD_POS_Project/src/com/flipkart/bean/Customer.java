@@ -12,13 +12,8 @@ public class Customer extends User {
 	private int age;
 	private String address;
 	
-<<<<<<< HEAD
 	public Customer(String email, String password, int roleId, String name, String phoneNumber, int age, String address) {
 		super(email, password, roleId);
-=======
-	public Customer(String email, String password, String roleName, String name, String phoneNumber, int age, String address) {
-		super(email, password, roleName);
->>>>>>> 61684daef6c97ae4cfd2bd25c5f5d3db96a1d893
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.age = age;
@@ -44,7 +39,6 @@ public class Customer extends User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-<<<<<<< HEAD
 
 	public int getAge() {
 		return age;
@@ -63,23 +57,3 @@ public class Customer extends User {
 	}
 
 }
-=======
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-}
->>>>>>> 61684daef6c97ae4cfd2bd25c5f5d3db96a1d893
