@@ -1,11 +1,11 @@
 package com.flipkart.DAO;
-import com.flipkart.bean.User;
+import com.flipkart.bean.FlipFitUser;
 /**
  * 
  */
 public class UserDAO {
 
-    public User authenticateUser(User userData) {
+    public FlipFitUser authenticateUser(FlipFitUser userData) {
         return userData;
     }
 }

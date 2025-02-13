@@ -5,42 +5,42 @@ package com.flipkart.client;
 
 import java.util.Scanner;
 
-import com.flipkart.bean.Gym;
-import com.flipkart.bean.GymOwner;
-import com.flipkart.business.GymOwnerBusiness;
-import com.flipkart.business.UserBusiness;
+import com.flipkart.bean.FlipFitGym;
+import com.flipkart.bean.FlipFitGymOwner;
+import com.flipkart.business.FlipFitGymOwnerService;
+import com.flipkart.business.FlipFitUserService;
 
 /**
  * 
  */
 public class GymOwnerClient {
 	
-	GymOwner gymOwner = new GymOwner();
-	GymOwnerBusiness gymOwnerBusiness = new GymOwnerBusiness();
+	FlipFitGymOwner flipFitGymOwner = new FlipFitGymOwner();
+	FlipFitGymOwnerService flipFitGymOwnerService = new FlipFitGymOwnerService();
 
 	/**
 	 * @param args
 	 */
 	
 	public void gymOwnerRegistration(Scanner in) {
-		System.out.println("Enter GymOwner Details : ");
+		System.out.println("Enter FlipFitGymOwner Details : ");
 		System.out.println("Enter Name : ");
-		gymOwner.setName(in.next());
+		flipFitGymOwner.setName(in.next());
 		System.out.println("Enter Phone Number : ");
-		gymOwner.setPhoneNumber(in.next());
+		flipFitGymOwner.setPhoneNumber(in.next());
 		System.out.println("Enter PAN : ");
-		gymOwner.setPanNumber(in.next());
+		flipFitGymOwner.setPanNumber(in.next());
 		System.out.println("Enter Aadhaar : ");
-		gymOwner.setAadharNumber(in.next());
+		flipFitGymOwner.setAadharNumber(in.next());
 		System.out.println("Enter Email : ");
-		gymOwner.setEmail(in.next());
+		flipFitGymOwner.setEmail(in.next());
 		System.out.println("Enter Password : ");
-		gymOwner.setPassword(in.next());
-		gymOwner.setRoleId(2);
-		System.out.println("Gym registration successful.");
+		flipFitGymOwner.setPassword(in.next());
+		flipFitGymOwner.setRoleId(2);
+		System.out.println("FlipFitGym registration successful.");
 		
-		UserBusiness userBusiness = new UserBusiness();
-		userBusiness.registerGymOwner(gymOwner);
+		FlipFitUserService flipFitUserService = new FlipFitUserService();
+		flipFitUserService.registerGymOwner(flipFitGymOwner);
 		
 		
 	}
@@ -48,69 +48,69 @@ public class GymOwnerClient {
 	public void editProfile(Scanner in) {
 		System.out.println("Enter Details: ");
 		System.out.println("Enter Name : ");
-		gymOwner.setName(in.next());
+		flipFitGymOwner.setName(in.next());
 		System.out.println("Enter Phone Number : ");
-		gymOwner.setPhoneNumber(in.next());
+		flipFitGymOwner.setPhoneNumber(in.next());
 		System.out.println("Enter PAN : ");
-		gymOwner.setPanNumber(in.next());
+		flipFitGymOwner.setPanNumber(in.next());
 		System.out.println("Enter Aadhaar : ");
-		gymOwner.setAadharNumber(in.next());
+		flipFitGymOwner.setAadharNumber(in.next());
 		
-		gymOwnerBusiness.editProfile(gymOwner);
+		flipFitGymOwnerService.editProfile(flipFitGymOwner);
 	}
 
 	public void viewProfile(Scanner in) {
 		System.out.println("Enter Id: ");
-		gymOwner = gymOwnerBusiness.getProfile(in.next());
-		System.out.println("Name : " + gymOwner.getName());
-		System.out.println("Phone Number : " + gymOwner.getPhoneNumber());
-		System.out.println("PAN : " + gymOwner.getPanNumber());
-		System.out.println("Aadhaar : " + gymOwner.getAadharNumber());
+		flipFitGymOwner = flipFitGymOwnerService.getProfile(in.next());
+		System.out.println("Name : " + flipFitGymOwner.getName());
+		System.out.println("Phone Number : " + flipFitGymOwner.getPhoneNumber());
+		System.out.println("PAN : " + flipFitGymOwner.getPanNumber());
+		System.out.println("Aadhaar : " + flipFitGymOwner.getAadharNumber());
 		
 	}
 
 	public void addGym(Scanner in) {
-		System.out.println("Enter Gym Details: ");
+		System.out.println("Enter FlipFitGym Details: ");
 		
-		Gym gym = new Gym();
+		FlipFitGym flipFitGym = new FlipFitGym();
 		System.out.println("Enter GymName : ");
-		gym.setGymName(in.next());
+		flipFitGym.setGymName(in.next());
 		System.out.println("Enter Owner Email : ");
-		gym.setOwnerEmail(in.next());
+		flipFitGym.setOwnerEmail(in.next());
 		System.out.println("Enter Address : ");
-		gym.setAddress(in.next());
+		flipFitGym.setAddress(in.next());
 		System.out.println("Enter SlotCount : ");
-		gym.setSlotCount(in.next());
+		flipFitGym.setSlotCount(in.next());
 		System.out.println("Enter seatsPerSlotCount : ");
-		gym.setSeatsPerSlotCount(in.next());
-		gym.setVerified(false);
+		flipFitGym.setSeatsPerSlotCount(in.next());
+		flipFitGym.setVerified(false);
 		
-		gymOwnerBusiness.addGym(gym);
+		flipFitGymOwnerService.addGym(flipFitGym);
 		
 
 	}
 
 	public void editGym(Scanner in) {
-		System.out.println("Enter Gym Details: ");
+		System.out.println("Enter FlipFitGym Details: ");
 		
-		Gym gym = new Gym();
+		FlipFitGym flipFitGym = new FlipFitGym();
 		System.out.println("Enter GymName : ");
-		gym.setGymName(in.next());
+		flipFitGym.setGymName(in.next());
 		System.out.println("Enter Owner Email : ");
-		gym.setOwnerEmail(in.next());
+		flipFitGym.setOwnerEmail(in.next());
 		System.out.println("Enter Address : ");
-		gym.setAddress(in.next());
+		flipFitGym.setAddress(in.next());
 		System.out.println("Enter SlotCount : ");
-		gym.setSlotCount(in.next());
+		flipFitGym.setSlotCount(in.next());
 		System.out.println("Enter seatsPerSlotCount : ");
-		gym.setSeatsPerSlotCount(in.next());
-		gym.setVerified(false);
+		flipFitGym.setSeatsPerSlotCount(in.next());
+		flipFitGym.setVerified(false);
 		
-		gymOwnerBusiness.editGym(gym);
+		flipFitGymOwnerService.editGym(flipFitGym);
 	}
 
 	public void getGymDetails(Scanner in) {
-		gymOwnerBusiness.getGymDetail(gymOwner.getEmail());
+		flipFitGymOwnerService.getGymDetail(flipFitGymOwner.getEmail());
 	}
 
 	public void gymOwnerMenu(Scanner in) {
@@ -118,9 +118,9 @@ public class GymOwnerClient {
 		
 		System.out.println("1. View Profile");
 		System.out.println("2. Edit Profile");
-		System.out.println("3. Add Gym");
-		System.out.println("4. Edit Gym");
-		System.out.println("5. View All Gym Details");
+		System.out.println("3. Add FlipFitGym");
+		System.out.println("4. Edit FlipFitGym");
+		System.out.println("5. View All FlipFitGym Details");
 		
 		int choice = in.nextInt();
 		

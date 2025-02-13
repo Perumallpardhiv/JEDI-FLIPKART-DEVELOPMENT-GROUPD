@@ -1,7 +1,7 @@
 package com.flipkart.client;
 
 import java.util.*;
-import com.flipkart.bean.User;
+import com.flipkart.bean.FlipFitUser;
 import com.flipkart.DAO.UserDAO;
 
 public class ApplicationClient {
@@ -11,12 +11,12 @@ public class ApplicationClient {
         String username = in.next();
         System.out.println("Enter password: ");
         String password = in.next();
-        System.out.println("Enter Role (1 - Customer, 2 - Gym Owner, 3 - Admin): ");
+        System.out.println("Enter FlipFitRole (1 - FlipFitCustomer, 2 - FlipFitGym Owner, 3 - Admin): ");
         int role = in.nextInt();
         
-        User user = new User(username,password,role);
+        FlipFitUser flipFitUser = new FlipFitUser(username,password,role);
         UserDAO authicated = new UserDAO();
-        if(authicated.authenticateUser(user)!=null)
+        if(authicated.authenticateUser(flipFitUser)!=null)
         {
             System.out.println("Welcome " + username + "! You are logged in.");
 
@@ -48,8 +48,8 @@ public class ApplicationClient {
 		System.out.println("Welcome to FlipFit");
 		System.out.println("Choose your action:");
 		System.out.println("1. Login");
-		System.out.println("2. User Registration");
-		System.out.println("3. Gym Owner Registration");
+		System.out.println("2. FlipFitUser FlipFitRegistration");
+		System.out.println("3. FlipFitGym Owner FlipFitRegistration");
 		System.out.println("4. exit");
 
 		Scanner in = new Scanner(System.in);

@@ -14,26 +14,26 @@ public class CustomerClient {
 	 * @param args
 	 */
 		// TODO Auto-generated method stub
-		Customer customer = new Customer();
-		CustomerBusiness customerBusiness = new CustomerBusiness();
+		FlipFitCustomer flipFitCustomer = new FlipFitCustomer();
+		FlipFitCustomerService flipFitCustomerService = new FlipFitCustomerService();
 		Scanner sc = new Scanner(System.in);
 		
 		public void registerCustomer() {
 			System.out.println("Enter email: ");
-			customer.setName(sc.next());
+			flipFitCustomer.setName(sc.next());
 			System.out.println("Enter password: ");
-			customer.setPassword(sc.next());
+			flipFitCustomer.setPassword(sc.next());
 			System.out.println("Enter Name: ");
-			customer.setName(sc.next());
+			flipFitCustomer.setName(sc.next());
 			System.out.println("Enter Phone Number: ");
-			customer.setPhoneNumber(sc.next());
+			flipFitCustomer.setPhoneNumber(sc.next());
 			System.out.println("Enter Age: ");
-			customer.setAge(Integer.valueOf(sc.next()));
+			flipFitCustomer.setAge(Integer.valueOf(sc.next()));
 			System.out.println("Enter Address: ");
-			customer.setAddress(sc.next());
-			System.out.println("Customer registration successful.");
-			UserBusiness userBusiness = new UserBusiness();
-			userBusiness.registerCustomer(customer);
+			flipFitCustomer.setAddress(sc.next());
+			System.out.println("FlipFitCustomer registration successful.");
+			FlipFitUserService flipFitUserService = new FlipFitUserService();
+			flipFitUserService.registerCustomer(flipFitCustomer);
 			
 		}
 		public void viewGyms(String email) {
@@ -42,36 +42,36 @@ public class CustomerClient {
 			String gymId = sc.next();
 			System.out.print("Enter Date");
 			Date date = new Date();
-			List<Slot> slots = customerBusiness.getSlotInGym(gymId);
-			for (Slot slot: slots) {
-				System.out.print("Slot Id: " + slot.getSlotId());
-				System.out.print("Availability: " + customerBusiness.isSlotBooked(slot.getSlotId(), date));
+			List<FlipFitSlot> flipFitSlots = flipFitCustomerService.getSlotInGym(gymId);
+			for (FlipFitSlot flipFitSlot: flipFitSlots) {
+				System.out.print("FlipFitSlot Id: " + flipFitSlot.getSlotId());
+				System.out.print("Availability: " + flipFitCustomerService.isSlotBooked(flipFitSlot.getSlotId(), date));
 			}
 			System.out.print("Enter the slot ID which you want to book: " );
 			String slotId = sc.next();
-			int bookingResponse = customerBusiness.bookSlot(gymId, slotId, email, date);
+			int bookingResponse = flipFitCustomerService.bookSlot(gymId, slotId, email, date);
 			switch(bookingResponse) {
 			case 0: 
 				System.out.println("You have already booked this time. Cancelling the previous one and booking this slot");
 				break;
 			case 1:
-				System.out.println("Slot is already booked");
+				System.out.println("FlipFitSlot is already booked");
 				break;
 			case 2:
 				System.out.println("Successfully booked the slot");
 				break;
 			default:
-				System.out.println("Booking falied");
+				System.out.println("FlipFitBooking falied");
 			}
 		}
 		
 		public void getGyms() {
 			System.out.println("Enter your city: ");
-			List<Gym> gyms = customerBusiness.getGymInCity(sc.next());
-			for (Gym gym: gyms) {
-				System.out.print("Gym Id: " + gym.getGymId());
-				System.out.print("Gym Owner Email: " + gym.getOwnerEmail());
-				System.out.print("Gym Name: " + gym.getGymName());
+			List<FlipFitGym> flipFitGyms = flipFitCustomerService.getGymInCity(sc.next());
+			for (FlipFitGym flipFitGym: flipFitGyms) {
+				System.out.print("FlipFitGym Id: " + flipFitGym.getGymId());
+				System.out.print("FlipFitGym Owner Email: " + flipFitGym.getOwnerEmail());
+				System.out.print("FlipFitGym Name: " + flipFitGym.getGymName());
 				System.out.println();
 			}
 		}
@@ -79,7 +79,7 @@ public class CustomerClient {
 		public void cancelBooking(String email) {
 			System.out.print("Enter booking ID that you want to cancel");
 			String bookingId = sc.next();
-			customerBusiness.cancelBooking(bookingId, email);
+			flipFitCustomerService.cancelBooking(bookingId, email);
 		}
 		
 		public void customerMenu(String email) {
@@ -96,7 +96,7 @@ public class CustomerClient {
 						viewGyms(email);
 						break;
 					case 2:
-						customerBusiness.getBookings(email);
+						flipFitCustomerService.getBookings(email);
 						break;
 					case 3:
 						cancelBooking(email);
