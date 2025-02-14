@@ -45,7 +45,7 @@ public class GymOwnerClient {
 		
 	}
 	
-	public void editProfile(Scanner in) {
+	public void editProfile(Scanner in, String email) {
 		System.out.println("Enter Details: ");
 		System.out.println("Enter Name : ");
 		flipFitGymOwner.setName(in.next());
@@ -56,7 +56,7 @@ public class GymOwnerClient {
 		System.out.println("Enter Aadhaar : ");
 		flipFitGymOwner.setAadharNumber(in.next());
 		
-		flipFitGymOwnerService.editProfile(flipFitGymOwner);
+		flipFitGymOwnerService.editProfile(flipFitGymOwner, email);
 	}
 
 	public void viewProfile(Scanner in) {
@@ -113,7 +113,7 @@ public class GymOwnerClient {
 		flipFitGymOwnerService.getGymDetail(flipFitGymOwner.getEmail());
 	}
 
-	public void gymOwnerMenu(Scanner in) {
+	public void gymOwnerMenu(Scanner in, String email) {
 		System.out.println("Welcome! Here are the actions you can perform!");
 		
 		System.out.println("1. View Profile");
@@ -126,12 +126,10 @@ public class GymOwnerClient {
 		
 		switch(choice) {
 		case 1: viewProfile(in);
-		case 2: editProfile(in);
+		case 2: editProfile(in, email);
 		case 3: addGym(in);
 		case 4: editGym(in);
 		case 5: getGymDetails(in);
-		}
-		
+		}	
 	}
-
 }
