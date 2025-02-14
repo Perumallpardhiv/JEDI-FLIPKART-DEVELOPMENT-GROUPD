@@ -48,8 +48,8 @@ public class ApplicationClient {
 		System.out.println("Welcome to FlipFit");
 		System.out.println("Choose your action:");
 		System.out.println("1. Login");
-		System.out.println("2. FlipFitUser FlipFitRegistration");
-		System.out.println("3. FlipFitGym Owner FlipFitRegistration");
+		System.out.println("2. FlipFitUser Registration");
+		System.out.println("3. FlipFitGymOwner Registration");
 		System.out.println("4. exit");
 
 		Scanner in = new Scanner(System.in);
