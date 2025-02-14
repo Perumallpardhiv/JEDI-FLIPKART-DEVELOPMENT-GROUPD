@@ -1,11 +1,5 @@
-/**
- * 
- */
 package com.flipkart.bean;
 
-/**
- * 
- */
 public class FlipFitGym {
 	private String gymId;
 	private String gymName;
@@ -15,6 +9,18 @@ public class FlipFitGym {
 	private String seatsPerSlotCount;
 	private boolean isVerified;
 
+	// Constructor
+	public FlipFitGym(String gymId, String gymName, String ownerEmail, String address, String slotCount, String seatsPerSlotCount, boolean isVerified) {
+		this.gymId = gymId;
+		this.gymName = gymName;
+		this.ownerEmail = ownerEmail;
+		this.address = address;
+		this.slotCount = slotCount;
+		this.seatsPerSlotCount = seatsPerSlotCount;
+		this.isVerified = isVerified;
+	}
+
+	// Getters and Setters
 	public String getGymId() {
 		return gymId;
 	}
@@ -70,5 +76,4 @@ public class FlipFitGym {
 	public void setVerified(boolean isVerified) {
 		this.isVerified = isVerified;
 	}
-
 }

@@ -1,11 +1,5 @@
-/**
- * 
- */
 package com.flipkart.bean;
 
-/**
- * 
- */
 public class FlipFitSlot {
 	private String slotId;
 	private String startTime;
@@ -13,6 +7,16 @@ public class FlipFitSlot {
 	private int numOfSeats;
 	private String trainer;
 
+	// Constructor
+	public FlipFitSlot(String slotId, String startTime, String endTime, int numOfSeats, String trainer) {
+		this.slotId = slotId;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.numOfSeats = numOfSeats;
+		this.trainer = trainer;
+	}
+
+	// Getters and Setters
 	public String getSlotId() {
 		return slotId;
 	}
