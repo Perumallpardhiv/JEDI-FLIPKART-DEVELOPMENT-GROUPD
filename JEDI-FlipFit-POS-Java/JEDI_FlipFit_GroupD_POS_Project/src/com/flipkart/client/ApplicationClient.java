@@ -2,7 +2,7 @@ package com.flipkart.client;
 
 import java.util.*;
 import com.flipkart.bean.FlipFitUser;
-import com.flipkart.DAO.UserDAO;
+import com.flipkart.DAO.FlipFitUserDAO;
 
 public class ApplicationClient {
 	public static void login() throws Exception{
@@ -15,7 +15,7 @@ public class ApplicationClient {
         int role = in.nextInt();
         
         FlipFitUser flipFitUser = new FlipFitUser(userEmail,password,role);
-        UserDAO authicated = new UserDAO();
+        FlipFitUserDAO authicated = new FlipFitUserDAO();
         if(authicated.authenticateUser(flipFitUser)!=null)
         {
             System.out.println("Welcome " + userEmail + "! You are logged in.");
