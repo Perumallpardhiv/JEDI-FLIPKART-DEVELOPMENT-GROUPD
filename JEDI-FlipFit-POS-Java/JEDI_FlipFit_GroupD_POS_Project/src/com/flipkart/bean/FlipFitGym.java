@@ -8,6 +8,10 @@ public class FlipFitGym {
 	private String slotCount;
 	private String seatsPerSlotCount;
 	private boolean isVerified;
+	
+	public FlipFitGym() {
+		
+	}
 
 	// Constructor
 	public FlipFitGym(String gymId, String gymName, String ownerEmail, String address, String slotCount, String seatsPerSlotCount, boolean isVerified) {

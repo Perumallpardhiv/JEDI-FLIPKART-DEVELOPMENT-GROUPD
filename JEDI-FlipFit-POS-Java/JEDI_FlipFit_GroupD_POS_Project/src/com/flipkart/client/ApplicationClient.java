@@ -8,27 +8,27 @@ public class ApplicationClient {
 	public static void login() throws Exception{
         Scanner in = new Scanner(System.in);
         System.out.println("Enter Email: ");
-        String username = in.next();
+        String userEmail = in.next();
         System.out.println("Enter password: ");
         String password = in.next();
         System.out.println("Enter FlipFitRole (1 - FlipFitCustomer, 2 - FlipFitGym Owner, 3 - Admin): ");
         int role = in.nextInt();
         
-        FlipFitUser flipFitUser = new FlipFitUser(username,password,role);
+        FlipFitUser flipFitUser = new FlipFitUser(userEmail,password,role);
         UserDAO authicated = new UserDAO();
         if(authicated.authenticateUser(flipFitUser)!=null)
         {
-            System.out.println("Welcome " + username + "! You are logged in.");
+            System.out.println("Welcome " + userEmail + "! You are logged in.");
 
             switch(role)
             {
             case 1: 
                 CustomerClient customer = new CustomerClient();
-                customer.customerMenu(username);
+                customer.customerMenu(userEmail);
                 break;
             case 2:
                 GymOwnerClient gymOwner = new GymOwnerClient();
-                gymOwner.gymOwnerMenu(in);
+                gymOwner.gymOwnerMenu(in, userEmail);
                 break;
             case 3:
                 AdminClient admin = new AdminClient();

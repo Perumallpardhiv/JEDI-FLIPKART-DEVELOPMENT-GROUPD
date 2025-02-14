@@ -4,7 +4,7 @@ import com.flipkart.bean.*;
 import java.util.*;
 
 public interface FlipFitCustomerServiceInterface{
-    public FlipFitCustomer getProfile(FlipFitCustomer FlipFitCustomer);
+    public void getProfile(FlipFitCustomer FlipFitCustomer);
     /*
     returns the FlipFitCustomer profile
     */
