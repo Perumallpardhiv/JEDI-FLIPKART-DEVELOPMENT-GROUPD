@@ -12,7 +12,7 @@ public class FlipFitCustomer extends FlipFitUser {
 	private int age;
 	private String address;
 	
-	public FlipFitCustomer(String email, String password, int roleId, String name, String phoneNumber, int age, String address) {
+	public FlipFitCustomer(String email, String password, String roleId, String name, String phoneNumber, int age, String address) {
 		super(email, password, roleId);
 		this.name = name;
 		this.phoneNumber = phoneNumber;

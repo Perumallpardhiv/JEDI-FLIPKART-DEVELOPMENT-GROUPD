@@ -9,9 +9,9 @@ package com.flipkart.bean;
 public class FlipFitUser {
 	private String email;
 	private String password;
-	private int roleId;
+	private String roleId;
 	
-	public FlipFitUser(String email, String password, int roleId) {
+	public FlipFitUser(String email, String password, String roleId) {
 		this.email = email;
 		this.password = password;
 		this.roleId = roleId;
@@ -37,11 +37,11 @@ public class FlipFitUser {
 		this.password = password;
 	}
 
-	public int getRoleId() {
+	public String getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
+	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
 }

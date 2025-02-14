@@ -46,6 +46,9 @@ public class FlipFitUserService {
     public boolean authenticateUser(String email, String password) {
         FlipFitUser user = users.get(email);
         return user != null && user.getPassword().equals(password);
+        boolean authenticateSuccess = false;
+		authenticateSuccess = userDao.authenticateUser(user);
+		return authenticateSuccess;
     }
 
     public boolean logout(String email) {
