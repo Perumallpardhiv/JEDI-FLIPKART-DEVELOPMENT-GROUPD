@@ -3,6 +3,7 @@ package com.flipkart.dao;
 import com.flipkart.bean.FlipFitGymOwner;
 import com.flipkart.constant.DBConstants;
 import com.flipkart.dao.interfaces.*;
+import com.flipkart.exceptions.WrongCredentialsException;
 import com.flipkart.bean.FlipFitGymCustomer;
 import com.flipkart.bean.FlipFitUser;
 

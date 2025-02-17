@@ -13,6 +13,7 @@ import com.flipkart.dao.FlipFitGymCustomerDAOImpl;
 import com.flipkart.dao.FlipFitGymOwnerDAOImpl;
 import com.flipkart.exceptions.ExceptionHandler;
 import com.flipkart.exceptions.InvalidChoiceException;
+import com.flipkart.exceptions.WrongCredentialsException;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -50,9 +51,9 @@ public class GymFlipFitApplication {
                 choice = in.nextInt();
 
                 // Switch case to handle the different user choices
-                switch (choice) {
-                    case 1: {
-                        // Login process
+                try {
+                	switch (choice) {
+                	case 1: {
                         System.out.println("Login");
                         System.out.print("Enter your emailId:> ");
                         String username = in.next();
@@ -60,58 +61,52 @@ public class GymFlipFitApplication {
                         String password = in.next();
                         System.out.print("Enter your role:> Customer/Admin/GymOwner ");
                         String role = in.next();
-                        System.out.println("Login Successful with username: " + username + " on: ");
-                        
-                        // Display current date and time
+
                         LocalDate localDate = LocalDate.now();
                         LocalTime localTime = LocalTime.now();
                         System.out.println("Date-->" + localDate);
                         System.out.println("Time-->" + localTime);
-                        
-                        // Switch case to handle different roles (Customer, Admin, GymOwner)
+
                         switch (role) {
                             case "Customer": {
-                                // Handling customer login and menu
                                 FlipFitUser gymCustomer = new FlipFitUser();
                                 gymCustomer.setEmailID(username);
                                 gymCustomer.setPassword(password);
-
                                 FlipFitGymCustomerDAOImpl flipFitGymCustomerDAO = new FlipFitGymCustomerDAOImpl();
                                 FlipFitGymCustomerBusiness GCBservice = new FlipFitGymCustomerBusiness(flipFitGymCustomerDAO);
 
                                 gymCustomer = GCBservice.login(gymCustomer);
+                                if (gymCustomer == null) {
+                                    throw new WrongCredentialsException();
+                                }
                                 System.out.println("Customer Menu");
                                 GymFlipFitCustomerMenu.getFlipFitCustomerMenu(gymCustomer);
                                 break;
                             }
                             case "Admin": {
-                                // Handling admin login and menu
                                 FlipFitAdmin admin = new FlipFitAdmin();
                                 admin.setEmailID(username);
                                 admin.setPassword(password);
                                 FlipFitAdminDAOImpl adminDAO = new FlipFitAdminDAOImpl();
                                 IFlipFitAdmin flipFitAdmin = new FlipFitAdminBusiness(adminDAO);
-                                try {
-                                    boolean res = flipFitAdmin.adminLogin(admin);
-                                    if (res) {
-                                        System.out.println("Admin Menu");
-                                        GymFlipFitAdminMenu.getAdminView();
-                                    }
-                                } catch (Exception e) {
-                                    e.printStackTrace();
+                                if (!flipFitAdmin.adminLogin(admin)) {
+                                    throw new WrongCredentialsException();
                                 }
+                                System.out.println("Admin Menu");
+                                GymFlipFitAdminMenu.getAdminView();
                                 break;
                             }
                             case "GymOwner": {
-                                // Handling gym owner login and menu
                                 FlipFitUser gymOwner = new FlipFitUser();
                                 gymOwner.setEmailID(username);
                                 gymOwner.setPassword(password);
-
                                 FlipFitGymOwnerDAOImpl flipFitGymOwnerDAO = new FlipFitGymOwnerDAOImpl();
                                 FlipFitGymOwnerBusiness GOBservice = new FlipFitGymOwnerBusiness(flipFitGymOwnerDAO);
 
                                 gymOwner = GOBservice.login(gymOwner);
+                                if (gymOwner == null) {
+                                    throw new WrongCredentialsException();
+                                }
                                 System.out.println("GymOwner Menu");
                                 GymFlipFitOwnerMenu.getFlipFitOwnerView(gymOwner);
                                 break;
@@ -245,8 +240,12 @@ public class GymFlipFitApplication {
                         throw new InvalidChoiceException("Invalid choice entered: " + choice);
                     }
                 }
+                } catch (WrongCredentialsException e) {
+                    e.printStackTrace();
+                }
             } while (choice != 5); // Exit condition
         }
+        
         catch (InvalidChoiceException e) {
             // Handle exception for invalid menu choice
             ExceptionHandler.InvalidChoiceMainMenu(e);

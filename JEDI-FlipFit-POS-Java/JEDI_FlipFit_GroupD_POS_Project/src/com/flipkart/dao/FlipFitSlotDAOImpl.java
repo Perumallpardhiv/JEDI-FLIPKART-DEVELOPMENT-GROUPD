@@ -142,6 +142,7 @@ public class FlipFitSlotDAOImpl implements IFlipFitSlotDAO {
         return slots;
     }
 
+
     /**
      * Retrieves the details of a specific slot by its ID.
      * @param slotId The ID of the slot whose details are to be retrieved.

@@ -46,6 +46,21 @@ public class FlipFitGymOwnerBusiness implements IFlipFitGymOwner {
         flipFitSlotDAOImpl.addSlot(flipFitSlot);
         return flipFitSlot;
     }
+    
+    /**
+     * Retrieves the list of slots for a specific gym centre.
+     * 
+     * @param centreID The ID of the gym centre whose slots are to be fetched.
+     * @return List<FlipFitSlots> A list of slots for the specified gym centre.
+     */
+    public List<FlipFitSlots> viewSlots(int centreID) {
+        // Use the FlipFitSlotDAOImpl to fetch the slots for the given centre ID
+        FlipFitSlotDAOImpl flipFitSlotDAOImpl = new FlipFitSlotDAOImpl();
+        List<FlipFitSlots> slotList = flipFitSlotDAOImpl.getAllSlots(centreID);
+        return slotList;
+    }
+
+    
 
     /**
      * Retrieves the list of gym centres associated with a specific gym owner.

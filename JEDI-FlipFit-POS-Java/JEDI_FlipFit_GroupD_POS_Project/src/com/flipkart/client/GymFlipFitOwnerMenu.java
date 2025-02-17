@@ -96,12 +96,13 @@ public class GymFlipFitOwnerMenu {
                         // Loop for managing centre-specific actions, such as adding slots
                         do {
                             System.out.println("Choose an option:" +
-                                    "\n 1. Add Slots" +
-                                    "\n 2. Exit");
+                                    "\n 1. View Slots" +
+                            		"\n 2. Add Slots" +
+                                    "\n 3. Exit");
                             centreChoice = sc.nextInt();
 
                             switch (centreChoice) {
-                                case 1: {
+                                case 2: {
                                     // Option 1: Add slots to an existing gym centre
                                     System.out.println("Select a Centre to add slots (Enter CentreID): ");
                                     int selectedCentreID = sc.nextInt();
@@ -125,8 +126,29 @@ public class GymFlipFitOwnerMenu {
                                     }
                                     break;
                                 }
-                                case 2: {
-                                    // Option 2: Exit the centre-specific menu
+                                case 1: {
+                                    // Option 2: View all slots for a selected gym centre
+                                    System.out.println("Select a Centre to view slots (Enter CentreID): ");
+                                    int selectedCentreID = sc.nextInt();
+
+                                    // Fetch the slots for the selected gym centre
+                                    List<FlipFitSlots> slotList = GOBservice.viewSlots(selectedCentreID);
+
+                                    // Check if slots are available for the selected centre
+                                    if (slotList.isEmpty()) {
+                                        System.out.println("No slots available for this gym centre.");
+                                    } else {
+                                        // Display details of the slots for the selected gym centre
+                                        System.out.println("Slots for CentreID " + selectedCentreID + ":");
+                                        for (FlipFitSlots slot : slotList) {
+                                            System.out.println("Slot Time: " + slot.getSlotTime() + " | Available Seats: " + slot.getSeatsAvailable());
+                                        }
+                                    }
+                                    break;
+                                }
+
+                                case 3: {
+                                    // Option 3: Exit the centre-specific menu
                                     System.out.println("Exiting to previous menu...");
                                     break;
                                 }
